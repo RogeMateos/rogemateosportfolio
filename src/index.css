@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Portfolio Design System - Dark Theme Inspired */
+    --background: 220 13% 9%; /* Dark gray background */
+    --foreground: 220 14% 83%; /* Light text for contrast */
+
+    /* Navy Color Palette */
+    --navy-deep: 220 13% 18%; /* #0a192f */
+    --navy-light: 220 16% 22%; /* #112240 */
+    --navy-lighter: 220 14% 31%; /* #1e293b */
+    
+    /* Slate Colors */
+    --slate: 220 13% 69%; /* #8892b0 */
+    --slate-light: 220 14% 83%; /* #a8b2d1 */
+    
+    /* Accent Colors */
+    --mint: 164 100% 75%; /* #64ffda */
+    --mint-glow: 164 100% 85%;
+    
+    /* Design System Tokens */
+    --primary: var(--slate-light);
+    --primary-foreground: var(--background);
+    --secondary: var(--navy-light);
+    --secondary-foreground: var(--slate-light);
+    --accent: var(--mint);
+    --accent-foreground: var(--navy-deep);
+    
+    --muted: var(--slate);
+    --muted-foreground: var(--slate);
+    
+    --card: 220 13% 12%; /* Slightly lighter than background */
+    --card-foreground: var(--slate-light);
+    
+    --border: 220 13% 20%;
+    --input: 220 13% 15%;
+    --ring: var(--mint);
+    
+    /* Custom Portfolio Tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(var(--navy-deep)), hsl(var(--navy-light)));
+    --mint-glow-shadow: 0 0 20px hsl(var(--mint) / 0.3);
+    --smooth-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom selection colors */
+  ::selection {
+    background-color: hsl(var(--mint) / 0.2);
+    color: hsl(var(--navy-deep));
+  }
+}
+
+/* Custom utility classes */
+@layer components {
+  .hero-button {
+    @apply inline-flex items-center justify-center rounded-lg px-8 py-3 text-sm font-medium;
+    @apply border border-accent/20 bg-transparent text-accent;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:bg-accent/10 hover:border-accent/40 hover:shadow-lg;
+    @apply focus:outline-none focus:ring-2 focus:ring-accent/50;
+  }
+  
+  .section-heading {
+    @apply text-2xl md:text-3xl font-bold text-primary mb-8;
+    @apply relative after:content-[''] after:absolute after:bottom-0 after:left-0;
+    @apply after:w-16 after:h-0.5 after:bg-accent after:rounded-full;
+  }
+  
+  .project-card {
+    @apply relative bg-card rounded-xl border border-border/40;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:border-accent/30 hover:shadow-xl hover:-translate-y-1;
+  }
+  
+  .nav-link {
+    @apply relative text-muted transition-colors duration-300;
+    @apply hover:text-accent;
+    @apply after:content-[''] after:absolute after:bottom-0 after:left-0;
+    @apply after:w-0 after:h-0.5 after:bg-accent after:transition-all after:duration-300;
+    @apply hover:after:w-full;
+  }
+}

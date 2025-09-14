@@ -12,14 +12,14 @@ const LearningHub = () => {
       title: "JavaScript Theory",
   description: "Comprehensive documentation on JavaScript fundamentals, from basics to advanced topics.",
       icon: <BookOpen className="w-6 h-6" />,
-      link: "https://js-theory.dev",
+      link: "https://jstheory.netlify.app/",
       type: "Documentation",
     },
     {
       title: "React Theory",
   description: "A detailed guide on React, hooks, patterns, and best practices for modern development.",
       icon: <BookOpen className="w-6 h-6" />,
-      link: "https://react-theory.dev",
+      link: "https://reacttheory.netlify.app/",
       type: "Documentation",
     },
     {

@@ -24,9 +24,9 @@ const LearningHub = () => {
     },
     {
       title: "Tools & Webpack",
-      description: "Development configurations and tools, including Webpack, Vite and modern build tools.",
+      description: "Interactive course covering essential modern JavaScript build tools.",
       icon: <BookOpen className="w-6 h-6" />,
-      link: "https://tools-webpack.dev",
+      link: "https://toolswebpack.netlify.app/",
       type: "Documentation",
     },
   ];

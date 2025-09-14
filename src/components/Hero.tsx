@@ -40,7 +40,7 @@ const Hero = () => {
           transition={{ delay: 0.5 }}
           className="text-5xl md:text-7xl font-bold text-primary mb-6"
         >
-Your Name
+Roge Mateos
         </motion.h1>
 
         <motion.h2
@@ -87,7 +87,7 @@ Full Stack Web Developer
           className="flex justify-center space-x-6 mb-16"
         >
           <motion.a
-            href="https://github.com"
+            href="https://github.com/RogeMateos"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted hover:text-accent transition-colors duration-300"
@@ -97,7 +97,7 @@ Full Stack Web Developer
             <Github size={24} />
           </motion.a>
           <motion.a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/rogemateos/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted hover:text-accent transition-colors duration-300"

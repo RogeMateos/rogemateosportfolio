@@ -9,13 +9,13 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "E-commerce Platform",
-      description: "Modern e-commerce platform with React, TypeScript and Stripe. Includes shopping cart, payment system and administration panel.",
-      tech: ["React", "TypeScript", "Node.js", "MongoDB", "Stripe"],
+      title: "Marvel Superheroes Comic App",
+      description: "Interactive Marvel superheroes application showcasing comic characters with detailed information, search functionality, and responsive design using Marvel API.",
+      tech: ["React", "TypeScript", "Marvel API", "CSS3", "Responsive Design"],
       category: "Professional",
-      demo: "https://demo.com",
-      github: "https://github.com",
-      featured: true,
+      demo: "https://superheroesmarvelcomic.netlify.app/marvel",
+      github: "https://github.com/RogeMateos/HeroesApp",
+      featured: false,
     },
     {
       title: "Task Management App",
@@ -24,7 +24,7 @@ const Projects = () => {
       category: "Personal",
       demo: "https://demo.com",
       github: "https://github.com",
-      featured: true,
+      featured: false,
     },
     {
       title: "Weather Dashboard",
@@ -98,9 +98,19 @@ const Projects = () => {
                 }`}
               >
                 <div className="flex flex-col h-full">
-                  {/* Project Image Placeholder */}
-                  <div className="w-full h-48 bg-gradient-to-br from-accent/10 to-accent/5 rounded-lg mb-6 border border-accent/10 flex items-center justify-center">
-                    <span className="text-muted text-sm">Project preview</span>
+                  {/* Project Image */}
+                  <div className="w-full h-48 bg-gradient-to-br from-accent/10 to-accent/5 rounded-lg mb-6 border border-accent/10 overflow-hidden">
+                    {project.title === "Marvel Superheroes Comic App" ? (
+                      <img
+                        src="/images/superheroes.jpeg"
+                        alt="Marvel Heroes App Interface"
+                        className="w-full h-full object-cover" style={{objectPosition: "center -18px"}}
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center">
+                        <span className="text-muted text-sm">Project preview</span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Category Badge */}

@@ -32,17 +32,18 @@ const About = () => {
               className="space-y-6"
             >
               <p className="text-muted text-lg leading-relaxed">
-                I'm a full-stack web developer with over 3 years of experience
-                creating modern and scalable web applications. I currently work
-                at a technology startup where I lead the front-end development of
-                innovative digital products.
+                I'm a front-end developer with over 3 years of React experience
+                building modern and scalable web applications. I currently work
+                at Hastings Insurance where I develop and maintain their Digital
+                Renewals application serving over 2.5 million customers.
               </p>
 
               <p className="text-muted text-lg leading-relaxed">
                 My current work involves everything from React application architecture
-                to performance optimization and implementation of development best practices.
-                I specialize in creating intuitive user interfaces that not only look good,
-                but work perfectly.
+                to complex customer journey optimization and API integration with backend
+                insurance systems. I specialize in creating intuitive user interfaces for
+                critical business processes like policy renewals, customer retention flows,
+                and payment processing that handle high-volume customer interactions.
               </p>
 
               <p className="text-muted text-lg leading-relaxed">
@@ -61,19 +62,19 @@ const About = () => {
                 <ul className="space-y-2 text-muted">
                   <li className="flex items-start">
                     <span className="text-accent mr-2">▶</span>
-                    React application development with TypeScript
+                    Digital Renewals application development at Hastings Insurance
                   </li>
                   <li className="flex items-start">
                     <span className="text-accent mr-2">▶</span>
-                    Performance optimization and UX/UI
+                    Customer journey optimization for 2.5M+ users
                   </li>
                   <li className="flex items-start">
                     <span className="text-accent mr-2">▶</span>
-                    Implementation of scalable architectures
+                    API integration with backend insurance systems
                   </li>
                   <li className="flex items-start">
                     <span className="text-accent mr-2">▶</span>
-                    Mentoring junior developers
+                    High-volume payment processing interfaces
                   </li>
                 </ul>
               </div>

@@ -33,28 +33,46 @@ const LearningHub = () => {
 
   const favoriteChannels = [
     {
-      name: "Midudev",
-  description: "Content about JavaScript, React, and modern web technologies",
-      subscribers: "500K+",
+      name: "The Net Ninja",
+      description: "Comprehensive programming tutorials from beginner to advanced levels, covering JavaScript, React, TypeScript, and modern web development with clear explanations",
+      subscribers: "1.5M+",
+      url: "https://www.youtube.com/@NetNinja",
     },
     {
-      name: "Fireship",
-      description: "Quick tutorials and programming trends",
-      subscribers: "2M+",
+      name: "Cole Medin",
+      description: "AI educator breaking down complex AI concepts into practical, hands-on guides covering AI agents, generative AI, and modern AI programming techniques",
+      subscribers: "100K+",
+      url: "https://www.youtube.com/@ColeMedin",
     },
     {
-      name: "Theo - t3.gg",
-      description: "Full-stack development and emerging technologies",
-      subscribers: "300K+",
+      name: "JavaScript Mastery",
+      description: "Project-based JavaScript tutorials covering modern web development, Next.js, and hands-on application building with industry best practices",
+      subscribers: "1M+",
+      url: "https://www.youtube.com/@javascriptmastery",
     },
   ];
 
   const newsResources = [
-    "Hacker News",
-    "Dev.to",
-    "JavaScript Weekly",
-    "React Newsletter",
-    "Frontend Focus",
+    {
+      name: "Smashing Magazine",
+      url: "https://www.smashingmagazine.com/",
+    },
+    {
+      name: "Dev.to",
+      url: "https://dev.to/",
+    },
+    {
+      name: "WeAreDevelopers Magazine",
+      url: "https://www.wearedevelopers.com/en/magazine",
+    },
+    {
+      name: "CODE Magazine",
+      url: "https://www.codemag.com/magazine/",
+    },
+    {
+      name: "Codemotion Magazine",
+      url: "https://www.codemotion.com/magazine/",
+    },
   ];
 
   return (
@@ -80,9 +98,9 @@ const LearningHub = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-muted text-lg mb-12 max-w-2xl"
           >
-            Resources, documentation and sources of knowledge that have helped me
-            in my growth as a developer. I share what I learn to
-            contribute to the community.
+            I have created these comprehensive resources and documentation to share my knowledge
+            and contribute to the developer community. These are the resources I've built
+            from my experience and learning journey.
           </motion.p>
 
           {/* My Documentation */}
@@ -141,12 +159,17 @@ const LearningHub = () => {
               </h3>
               <div className="space-y-4">
                 {favoriteChannels.map((channel) => (
-                  <div
+                  <motion.a
                     key={channel.name}
-                    className="p-4 bg-card rounded-lg border border-border/40"
+                    href={channel.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block p-4 bg-card rounded-lg border border-border/40 transition-all duration-300 hover:border-accent/30 hover:shadow-lg hover:-translate-y-1 cursor-pointer group"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
                     <div className="flex justify-between items-start mb-2">
-                      <h4 className="font-semibold text-primary">
+                      <h4 className="font-semibold text-primary group-hover:text-accent transition-colors">
                         {channel.name}
                       </h4>
                       <span className="text-sm text-muted">
@@ -154,7 +177,11 @@ const LearningHub = () => {
                       </span>
                     </div>
                     <p className="text-muted text-sm">{channel.description}</p>
-                  </div>
+                    <div className="flex items-center text-accent text-sm mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span>Visit channel</span>
+                      <ExternalLink className="w-4 h-4 ml-2" />
+                    </div>
+                  </motion.a>
                 ))}
               </div>
             </motion.div>
@@ -171,13 +198,19 @@ const LearningHub = () => {
               </h3>
               <div className="space-y-3">
                 {newsResources.map((source) => (
-                  <div
-                    key={source}
-                    className="flex items-center p-3 bg-card rounded-lg border border-border/40"
+                  <motion.a
+                    key={source.name}
+                    href={source.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center p-3 bg-card rounded-lg border border-border/40 transition-all duration-300 hover:border-accent/30 hover:shadow-lg hover:-translate-y-1 cursor-pointer group"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
                     <div className="w-2 h-2 bg-accent rounded-full mr-3" />
-                    <span className="text-primary font-medium">{source}</span>
-                  </div>
+                    <span className="text-primary font-medium group-hover:text-accent transition-colors">{source.name}</span>
+                    <ExternalLink className="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-accent" />
+                  </motion.a>
                 ))}
               </div>
               <div className="mt-6 p-4 bg-accent/5 rounded-lg border border-accent/20">

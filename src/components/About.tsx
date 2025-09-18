@@ -8,12 +8,12 @@ const About = () => {
 
   return (
     <section id="about" ref={ref} className="py-20 bg-background">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-12">
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto"
+          className="max-w-4xl"
         >
           <motion.h2 
             initial={{ opacity: 0, y: 30 }}

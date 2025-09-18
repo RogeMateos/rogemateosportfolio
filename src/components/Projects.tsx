@@ -99,29 +99,56 @@ const Projects = () => {
               >
                 <div className="flex flex-col h-full">
                   {/* Project Image */}
-                  <div className="w-full h-48 bg-gradient-to-br from-accent/10 to-accent/5 rounded-lg mb-6 border border-accent/10 overflow-hidden">
+                  <motion.a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full h-48 bg-gradient-to-br from-accent/10 to-accent/5 rounded-lg mb-6 border border-accent/10 overflow-hidden cursor-pointer"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
                     {project.title === "Marvel Superheroes Comic App" ? (
                       <img
                         src="/images/superheroes.jpeg"
                         alt="Marvel Heroes App Interface"
-                        className="w-full h-full object-cover" style={{objectPosition: "center -18px"}}
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                        style={{objectPosition: "center -18px"}}
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center">
+                      <div className="w-full h-full flex items-center justify-center transition-transform duration-300 hover:scale-105">
                         <span className="text-muted text-sm">Project preview</span>
                       </div>
                     )}
-                  </div>
+                  </motion.a>
 
                   {/* Category Badge */}
                   <div className="mb-4">
-                    <span
-                      className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${getCategoryColor(
+                    <motion.a
+                      href={
+                        project.category === "Professional"
+                          ? "#professional-projects"
+                          : project.category === "Personal"
+                          ? "#personal-projects"
+                          : project.category === "Experimental"
+                          ? "#experimental-projects"
+                          : "#projects"
+                      }
+                      className={`inline-block px-3 py-1 rounded-full text-sm font-medium cursor-pointer select-none transition-colors duration-200 ${getCategoryColor(
                         project.category
-                      )}`}
+                      )} ${
+                        project.category === "Professional"
+                          ? "hover:text-accent/70"
+                          : project.category === "Personal"
+                          ? "hover:text-blue-400/70"
+                          : project.category === "Experimental"
+                          ? "hover:text-purple-400/70"
+                          : ""
+                      }`}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       {project.category}
-                    </span>
+                    </motion.a>
                   </div>
 
                   {/* Project Title */}

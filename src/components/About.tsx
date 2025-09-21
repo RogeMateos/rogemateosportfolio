@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const About = () => {
   const ref = useRef(null);
@@ -24,7 +25,7 @@ const About = () => {
             About me
           </motion.h2>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -87,15 +88,12 @@ const About = () => {
               className="relative"
             >
               <div className="relative z-10">
-                <div className="w-full h-96 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl border border-accent/20 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-32 h-32 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <span className="text-4xl text-accent">👨‍💻</span>
-                    </div>
-                    <p className="text-muted text-sm">
-                      Professional photo here
-                    </p>
-                  </div>
+                <div className="w-full h-96 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl border border-accent/20 overflow-hidden">
+                  <img
+                    src="/images/roge.png"
+                    alt="Roge Mateos - Professional Photo"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
               

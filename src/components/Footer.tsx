@@ -6,17 +6,17 @@ const Footer = () => {
     {
       name: "GitHub",
       icon: <Github size={20} />,
-      url: "https://github.com",
+      url: "https://github.com/RogeMateos",
     },
     {
       name: "LinkedIn",
       icon: <Linkedin size={20} />,
-      url: "https://linkedin.com",
+      url: "https://www.linkedin.com/in/rogemateos/",
     },
     {
       name: "Email",
       icon: <Mail size={20} />,
-      url: "mailto:your@email.com",
+      url: "mailto:roge@email.com",
     },
   ];
 
@@ -44,7 +44,7 @@ const Footer = () => {
           </motion.p>
 
           <motion.a
-            href="mailto:your@email.com"
+            href="mailto:roge@email.com"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -88,10 +88,7 @@ const Footer = () => {
             <p className="text-muted text-sm flex items-center justify-center">
               Made with{" "}
               <Heart className="w-4 h-4 mx-1 text-red-500 fill-current" />{" "}
-              by Your Name © {new Date().getFullYear()}
-            </p>
-            <p className="text-muted text-xs mt-2">
-              Inspired by the design of Brittany Chiang
+              by Roge Mateos © {new Date().getFullYear()}
             </p>
           </motion.div>
         </div>

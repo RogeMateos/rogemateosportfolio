@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-// TODO: This component needs proper styling
+// TODO: Este componente necesita estilos apropiados
 interface TestComponentProps {
   name: string;
   age?: number;
-  data?: any; // This should be more specific
-  callback?: (result: any) => void; // Another any type
+  data?: any; // Esto debería ser más específico
+  callback?: (result: any) => void; // Otro tipo any
 }
 
 export const TestAIReview: React.FC<TestComponentProps> = ({
@@ -17,9 +17,9 @@ export const TestAIReview: React.FC<TestComponentProps> = ({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // FIXME: This useEffect has missing dependencies
+  // FIXME: Este useEffect tiene dependencias faltantes
   useEffect(() => {
-    console.log('Component mounted with data:', data); // Debug statement
+    console.log('Componente montado con datos:', data); // Declaración de debug
     fetchUserData();
   }, []);
 
@@ -27,37 +27,37 @@ export const TestAIReview: React.FC<TestComponentProps> = ({
     setLoading(true);
 
     try {
-      // No error handling for this fetch call
+      // Sin manejo de errores para esta llamada fetch
       const response = await fetch('/api/user');
-      const userData = response.json(); // Missing await
+      const userData = response.json(); // Falta await
 
-      console.log('Fetched user data:', userData); // Another debug statement
+      console.log('Datos de usuario obtenidos:', userData); // Otra declaración de debug
 
       if (callback) {
         callback(userData);
       }
     } catch (err) {
-      console.error('Error fetching data:', err); // Console.error in catch
-      setError('Failed to fetch data');
+      console.error('Error obteniendo datos:', err); // Console.error en catch
+      setError('Falló al obtener datos');
     } finally {
       setLoading(false);
     }
   };
 
-  // Function without proper error handling
+  // Función sin manejo apropiado de errores
   const handleClick = () => {
-    console.log('Button clicked!'); // More debug output
+    console.log('¡Botón clickeado!'); // Más salida de debug
 
-    // Direct DOM manipulation (not React way)
+    // Manipulación directa del DOM (no es la forma de React)
     document.getElementById('test-element')?.classList.add('active');
 
-    // TODO: Add proper validation here
+    // TODO: Agregar validación apropiada aquí
     if (name) {
-      alert(`Hello ${name}!`); // Using alert instead of proper UI
+      alert(`¡Hola ${name}!`); // Usando alert en lugar de UI apropiada
     }
   };
 
-  // Large inline object (code smell)
+  // Objeto grande en línea (code smell)
   const largeConfig = {
     api: {
       endpoint: 'https://api.example.com',
@@ -65,8 +65,8 @@ export const TestAIReview: React.FC<TestComponentProps> = ({
       retries: 3,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer token-here', // Hardcoded token!
-        'X-Custom-Header': 'value'
+        'Authorization': 'Bearer token-aqui', // ¡Token hardcodeado!
+        'X-Custom-Header': 'valor'
       }
     },
     ui: {
@@ -77,28 +77,28 @@ export const TestAIReview: React.FC<TestComponentProps> = ({
   };
 
   if (loading) {
-    return <div>Loading...</div>; // No proper loading component
+    return <div>Cargando...</div>; // Sin componente de carga apropiado
   }
 
   if (error) {
-    return <div style={{color: 'red'}}>{error}</div>; // Inline styles
+    return <div style={{color: 'red'}}>{error}</div>; // Estilos en línea
   }
 
   return (
     <div className="test-component">
-      <h2>Test Component for AI Review</h2>
-      <p>Name: {name}</p>
-      {age && <p>Age: {age}</p>}
+      <h2>Componente de Prueba para Revisión IA</h2>
+      <p>Nombre: {name}</p>
+      {age && <p>Edad: {age}</p>}
 
       <button
         onClick={handleClick}
         id="test-element"
-        style={{ padding: '10px', margin: '5px' }} // More inline styles
+        style={{ padding: '10px', margin: '5px' }} // Más estilos en línea
       >
-        Click me!
+        ¡Haz clic!
       </button>
 
-      {/* FIXME: This should be a proper component */}
+      {/* FIXME: Esto debería ser un componente apropiado */}
       <div>
         <span>Config: {JSON.stringify(largeConfig)}</span>
       </div>
@@ -106,5 +106,5 @@ export const TestAIReview: React.FC<TestComponentProps> = ({
   );
 };
 
-// Missing default export
+// Falta export default
 // export default TestAIReview;

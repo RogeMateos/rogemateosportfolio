@@ -1,114 +1,114 @@
-# 🤖 Configuración de Revisión de Código con IA Claude
+# 🤖 Claude AI Code Review Setup
 
-## 🎯 ¿Qué hace esto?
+## 🎯 What does this do?
 
-Este repositorio está configurado con **Revisión de Código automática con IA** que analiza cada Pull Request usando inteligencia artificial Claude, proporcionando retroalimentación profesional y detallada.
+This repository is configured with **Automated AI Code Review** that analyzes every Pull Request using Claude artificial intelligence, providing professional and detailed feedback.
 
-### ✨ Características Principales
+### ✨ Key Features
 
-- 🔍 **Análisis automático** de cada PR
-- 📊 **Estadísticas detalladas** de cambios
-- ⚠️ **Detección de problemas** comunes de código
-- 💡 **Sugerencias inteligentes** de mejora
-- 🎯 **Evaluación de calidad** del código
-- ✅ **Comentarios automáticos** profesionales
+- 🔍 **Automatic analysis** of every PR
+- 📊 **Detailed statistics** of changes
+- ⚠️ **Detection of common** code issues
+- 💡 **Intelligent suggestions** for improvement
+- 🎯 **Code quality evaluation**
+- ✅ **Professional automated** comments
 
-## 🚀 Funcionalidades de la Revisión con IA
+## 🚀 AI Review Capabilities
 
-### 🔍 Detección Automática
+### 🔍 Automatic Detection
 
-- **Declaraciones console.log** - Detecta logs de debug olvidados
-- **Uso de tipo `any`** - Sugiere tipos más específicos en TypeScript
-- **TODOs y FIXMEs** - Identifica deuda técnica pendiente
-- **Manejo de errores** - Recuerda implementar try-catch
-- **Buenas prácticas** - Sugiere mejoras de código
+- **Console.log statements** - Detects forgotten debug logs
+- **Usage of `any` type** - Suggests more specific TypeScript types
+- **TODOs and FIXMEs** - Identifies pending technical debt
+- **Error handling** - Reminds to implement try-catch
+- **Best practices** - Suggests code improvements
 
-### 📊 Análisis Incluido
+### 📊 Analysis Included
 
-- **Evaluación de calidad** del código
-- **Conteo de archivos** y líneas modificadas
-- **Tipos de archivos** (React, TypeScript, CSS, etc.)
-- **Problemas específicos** por archivo y línea
-- **Sugerencias contextuales** de mejora
+- **Code quality evaluation**
+- **File count** and lines modified
+- **File types** (React, TypeScript, CSS, etc.)
+- **Specific issues** by file and line
+- **Contextual suggestions** for improvement
 
-## 🎛️ Workflows Configurados
+## 🎛️ Configured Workflows
 
-### 1. `ai-review-fixed.yml` - Revisión Principal
-- Análisis inteligente del código
-- Detección de patrones problemáticos
-- Comentarios automáticos detallados
-- Manejo robusto de errores
+### 1. `ai-review-fixed.yml` - Main Review
+- Intelligent code analysis
+- Detection of problematic patterns
+- Detailed automated comments
+- Robust error handling
 
-### 2. `simple-code-review.yml` - Revisión Rápida
-- Análisis básico con checklist
-- Backup en caso de fallas del workflow principal
-- Comentarios simples pero efectivos
+### 2. `simple-code-review.yml` - Quick Review
+- Basic analysis with checklist
+- Backup in case main workflow fails
+- Simple but effective comments
 
-## 🔧 Cómo Funciona
+## 🔧 How It Works
 
-1. **Activación**: Cada vez que abres/actualizas un PR
-2. **Análisis**: GitHub Actions ejecuta el workflow automáticamente
-3. **Revisión**: La IA analiza todos los cambios del código
-4. **Comentario**: Publica una revisión detallada en el PR
-5. **Retroalimentación**: Proporciona sugerencias específicas
+1. **Trigger**: Every time you open/update a PR
+2. **Analysis**: GitHub Actions executes the workflow automatically
+3. **Review**: AI analyzes all code changes
+4. **Comment**: Posts a detailed review on the PR
+5. **Feedback**: Provides specific suggestions
 
-## 📝 Ejemplo de Salida
+## 📝 Example Output
 
-Cuando crees un PR, verás algo así:
+When you create a PR, you'll see something like this:
 
 ```markdown
-## 🤖 Revisión de Código con IA Claude
+## 🤖 Claude AI Code Review
 
-**Archivos Modificados:** 5
-**PR:** Agregar nueva funcionalidad de login
-**Autor:** @rogemateos
+**Files Changed:** 5
+**PR:** Add new login functionality
+**Author:** @rogemateos
 
-### 🚨 Problemas Encontrados (2)
+### 🚨 Issues Found (2)
 
-- 🔍 Declaración de debug en `src/components/Login.tsx:45` - `console.log('user data:', userData)`
-- ⚠️ Uso de tipo any en `src/types/user.ts:12` - `data: any`
+- 🔍 Debug statement in `src/components/Login.tsx:45` - `console.log('user data:', userData)`
+- ⚠️ Any type usage in `src/types/user.ts:12` - `data: any`
 
-### 📂 Archivos
+### 📂 Files
 
 - `src/components/Login.tsx`
 - `src/types/user.ts`
 - `src/utils/validation.js`
 
 ---
-*🤖 Revisión automatizada por IA Claude*
+*🤖 Automated review by Claude AI*
 ```
 
-## 🎮 Probando el Sistema
+## 🎮 Testing the System
 
-Para verificar que funciona correctamente:
+To verify it works correctly:
 
-1. Crea una nueva rama: `git checkout -b prueba/revision-ia`
-2. Haz cambios al código (incluye algunos console.log para probar)
-3. Confirma y sube: `git push -u origin prueba/revision-ia`
-4. Crea un PR en GitHub
-5. ¡Verás la revisión automática con IA en acción! 🚀
+1. Create a new branch: `git checkout -b test/ai-review`
+2. Make code changes (include some console.log to test)
+3. Commit and push: `git push -u origin test/ai-review`
+4. Create a PR on GitHub
+5. You'll see the automatic AI review in action! 🚀
 
-## 🛠️ Personalización
+## 🛠️ Customization
 
-Puedes modificar los workflows en `.github/workflows/` para:
+You can modify the workflows in `.github/workflows/` to:
 
-- **Cambiar patrones de detección** - Agregar nuevas reglas de código
-- **Ajustar mensajes** - Personalizar los comentarios de revisión
-- **Modificar criterios** - Cambiar qué considera problemático
-- **Agregar verificaciones** - Incluir nuevas validaciones automáticas
+- **Change detection patterns** - Add new code rules
+- **Adjust messages** - Customize review comments
+- **Modify criteria** - Change what's considered problematic
+- **Add verifications** - Include new automatic validations
 
-## 📚 Archivos Importantes
+## 📚 Important Files
 
-- `.github/workflows/ai-review-fixed.yml` - Workflow principal funcionando
-- `.github/workflows/simple-code-review.yml` - Workflow de respaldo
-- `.github/SETUP.md` - Esta documentación completa
+- `.github/workflows/ai-review-fixed.yml` - Main working workflow
+- `.github/workflows/simple-code-review.yml` - Backup workflow
+- `.github/SETUP.md` - This complete documentation
 
-## 🎯 Beneficios
+## 🎯 Benefits
 
-- ✅ **Calidad consistente** - Revisiones uniformes en todos los PRs
-- ⚡ **Feedback inmediato** - No esperas por revisores humanos
-- 🎓 **Aprendizaje** - Mejoras tu código con sugerencias IA
-- 🔍 **Detección temprana** - Encuentra problemas antes del merge
-- 📈 **Productividad** - Automatiza parte del proceso de revisión
+- ✅ **Consistent quality** - Uniform reviews on all PRs
+- ⚡ **Immediate feedback** - No waiting for human reviewers
+- 🎓 **Learning** - Improve your code with AI suggestions
+- 🔍 **Early detection** - Find issues before merge
+- 📈 **Productivity** - Automates part of the review process
 
-¡Ahora tienes Revisión de Código automática con IA Claude completamente en español! 🎉
+Now you have automated AI Code Review with Claude completely in English! 🎉

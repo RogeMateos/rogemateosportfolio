@@ -1,4 +1,4 @@
-name: 🤖 Revisión de Código con IA Claude
+name: 🤖 Claude AI Code Review
 
 on:
   pull_request:
@@ -9,36 +9,36 @@ permissions:
   pull-requests: write
 
 jobs:
-  revision-ia:
+  ai-review:
     runs-on: ubuntu-latest
-    name: Revisión de Código con IA
+    name: AI Code Review
 
     steps:
-      - name: 📥 Descargar Código
+      - name: 📥 Checkout Code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: 🔍 Análisis de Código con IA
+      - name: 🔍 AI Code Analysis
         uses: actions/github-script@v7
         with:
           script: |
             const { execSync } = require('child_process');
 
             try {
-              // Obtener archivos modificados
+              // Get changed files
               const changedFiles = execSync(`git diff --name-only origin/${{ github.base_ref }}...HEAD`, {encoding: 'utf8'})
                 .trim().split('\n').filter(f => f);
 
-              console.log(`Analizando ${changedFiles.length} archivos modificados`);
+              console.log(`Analyzing ${changedFiles.length} changed files`);
 
-              let reviewBody = `## 🤖 Revisión de Código con IA Claude\n\n`;
-              reviewBody += `**Archivos Modificados:** ${changedFiles.length}\n`;
+              let reviewBody = `## 🤖 Claude AI Code Review\n\n`;
+              reviewBody += `**Files Changed:** ${changedFiles.length}\n`;
               reviewBody += `**PR:** ${context.payload.pull_request.title}\n`;
-              reviewBody += `**Autor:** @${context.payload.pull_request.user.login}\n\n`;
+              reviewBody += `**Author:** @${context.payload.pull_request.user.login}\n\n`;
 
-              // Análisis simple
-              let problemas = [];
+              // Simple analysis
+              let issues = [];
               const fs = require('fs');
 
               for (const file of changedFiles) {
@@ -52,47 +52,47 @@ jobs:
                     const trimmed = line.trim();
                     const lineNum = index + 1;
 
-                    // Detección de console.log
+                    // Console.log detection
                     if (trimmed.includes('console.log')) {
-                      problemas.push(`🔍 Declaración de debug en \`${file}:${lineNum}\` - \`${trimmed}\``);
+                      issues.push(`🔍 Debug statement in \`${file}:${lineNum}\` - \`${trimmed}\``);
                     }
 
-                    // Detección de tipo any
+                    // Any type detection
                     if (trimmed.includes(': any')) {
-                      problemas.push(`⚠️ Uso de tipo any en \`${file}:${lineNum}\` - \`${trimmed}\``);
+                      issues.push(`⚠️ Any type usage in \`${file}:${lineNum}\` - \`${trimmed}\``);
                     }
 
-                    // Detección de TODOs
+                    // TODO detection
                     if (trimmed.includes('TODO') || trimmed.includes('FIXME')) {
-                      problemas.push(`📝 Deuda técnica en \`${file}:${lineNum}\` - \`${trimmed}\``);
+                      issues.push(`📝 Technical debt in \`${file}:${lineNum}\` - \`${trimmed}\``);
                     }
                   });
                 } catch (error) {
-                  console.log(`No se pudo analizar ${file}: ${error.message}`);
+                  console.log(`Could not analyze ${file}: ${error.message}`);
                 }
               }
 
-              // Construir revisión
-              if (problemas.length > 0) {
-                reviewBody += `### 🚨 Problemas Encontrados (${problemas.length})\n\n`;
-                problemas.slice(0, 10).forEach(problema => {
-                  reviewBody += `- ${problema}\n`;
+              // Build review
+              if (issues.length > 0) {
+                reviewBody += `### 🚨 Issues Found (${issues.length})\n\n`;
+                issues.slice(0, 10).forEach(issue => {
+                  reviewBody += `- ${issue}\n`;
                 });
-                if (problemas.length > 10) {
-                  reviewBody += `\n... y ${problemas.length - 10} problemas más\n`;
+                if (issues.length > 10) {
+                  reviewBody += `\n... and ${issues.length - 10} more issues\n`;
                 }
               } else {
-                reviewBody += `### ✅ No Se Encontraron Problemas\n\n¡Excelente trabajo! No se detectaron problemas obvios.\n`;
+                reviewBody += `### ✅ No Issues Found\n\nGreat job! No obvious issues detected.\n`;
               }
 
-              reviewBody += `\n### 📂 Archivos\n\n`;
+              reviewBody += `\n### 📂 Files\n\n`;
               changedFiles.forEach(file => {
                 reviewBody += `- \`${file}\`\n`;
               });
 
-              reviewBody += `\n---\n*🤖 Revisión automatizada por IA Claude*`;
+              reviewBody += `\n---\n*🤖 Automated review by Claude AI*`;
 
-              // Publicar comentario
+              // Post comment
               await github.rest.issues.createComment({
                 issue_number: context.payload.pull_request.number,
                 owner: context.repo.owner,
@@ -100,16 +100,16 @@ jobs:
                 body: reviewBody
               });
 
-              console.log('✅ ¡Revisión publicada exitosamente!');
+              console.log('✅ Review posted successfully!');
 
             } catch (error) {
-              console.error('❌ La revisión falló:', error);
+              console.error('❌ Review failed:', error);
 
-              // Publicar comentario de error
+              // Post error comment
               await github.rest.issues.createComment({
                 issue_number: context.payload.pull_request.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                body: `## 🤖 Revisión de Código con IA Claude\n\n❌ **La revisión falló debido a un error técnico**\n\nPor favor revisa los logs del workflow para más detalles.\n\n*🤖 Revisión automatizada por IA Claude*`
+                body: `## 🤖 Claude AI Code Review\n\n❌ **Review failed due to technical error**\n\nPlease check the workflow logs for details.\n\n*🤖 Automated review by Claude AI*`
               });
             }

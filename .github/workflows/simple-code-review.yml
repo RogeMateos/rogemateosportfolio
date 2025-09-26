@@ -1,4 +1,4 @@
-name: 📝 Revisión Rápida de Código
+name: 📝 Quick Code Review
 
 on:
   pull_request:
@@ -9,52 +9,52 @@ permissions:
   pull-requests: write
 
 jobs:
-  revision-rapida:
+  quick-review:
     runs-on: ubuntu-latest
-    name: Análisis Rápido de Código
+    name: Quick Code Analysis
 
     steps:
-      - name: 📥 Descargar Código
+      - name: 📥 Checkout Code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: 🔍 Análisis Rápido
+      - name: 🔍 Quick Analysis
         uses: actions/github-script@v7
         with:
           script: |
             const { execSync } = require('child_process');
 
             try {
-              // Obtener archivos modificados
+              // Get changed files
               const changedFiles = execSync(`git diff --name-only origin/${{ github.base_ref }}...HEAD`, {encoding: 'utf8'}).trim().split('\n').filter(f => f);
 
-              let comment = "## 🔍 Revisión Rápida de Código\n\n";
-              comment += `**Archivos modificados:** ${changedFiles.length}\n\n`;
+              let comment = "## 🔍 Quick Code Review\n\n";
+              comment += `**Files changed:** ${changedFiles.length}\n\n`;
 
-              // Verificaciones básicas
+              // Basic checks
               const jsFiles = changedFiles.filter(f => f.endsWith('.js') || f.endsWith('.jsx') || f.endsWith('.ts') || f.endsWith('.tsx'));
               const cssFiles = changedFiles.filter(f => f.endsWith('.css') || f.endsWith('.scss'));
               const configFiles = changedFiles.filter(f => f.includes('config') || f.endsWith('.json'));
 
               if (jsFiles.length > 0) {
-                comment += `⚛️ **Archivos JavaScript/TypeScript:** ${jsFiles.length}\n`;
+                comment += `⚛️ **JavaScript/TypeScript files:** ${jsFiles.length}\n`;
               }
               if (cssFiles.length > 0) {
-                comment += `🎨 **Archivos de estilos:** ${cssFiles.length}\n`;
+                comment += `🎨 **Style files:** ${cssFiles.length}\n`;
               }
               if (configFiles.length > 0) {
-                comment += `⚙️ **Archivos de configuración:** ${configFiles.length}\n`;
+                comment += `⚙️ **Config files:** ${configFiles.length}\n`;
               }
 
-              comment += "\n### 📋 Lista de Verificación\n";
-              comment += "- [ ] Las pruebas pasan correctamente\n";
-              comment += "- [ ] El código sigue las convenciones del proyecto\n";
-              comment += "- [ ] No hay declaraciones console.log en código de producción\n";
-              comment += "- [ ] La documentación se actualizó si es necesario\n";
-              comment += "- [ ] Se mantiene la seguridad de tipos\n\n";
+              comment += "\n### 📋 Checklist\n";
+              comment += "- [ ] Tests are passing\n";
+              comment += "- [ ] Code follows project conventions\n";
+              comment += "- [ ] No console.log statements in production code\n";
+              comment += "- [ ] Documentation updated if needed\n";
+              comment += "- [ ] Type safety maintained\n\n";
 
-              comment += "*🤖 Revisión rápida automatizada*";
+              comment += "*🤖 Automated quick review*";
 
               await github.rest.issues.createComment({
                 issue_number: context.payload.pull_request.number,
@@ -64,5 +64,5 @@ jobs:
               });
 
             } catch (error) {
-              console.log('Error en la revisión rápida:', error);
+              console.log('Error in quick review:', error);
             }

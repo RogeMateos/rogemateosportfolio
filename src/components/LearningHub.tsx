@@ -76,7 +76,7 @@ const LearningHub = () => {
   ];
 
   return (
-    <section id="learning" ref={ref} className="py-20 bg-secondary/10">
+    <section id="learning" ref={ref} className="py-8 bg-secondary/10">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0 }}

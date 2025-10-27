@@ -37,7 +37,7 @@ const Blog = () => {
   const categories = ["All", "React", "JavaScript", "Performance", "Learning", "Resources"];
 
   return (
-    <section id="blog" ref={ref} className="py-20 bg-secondary/5">
+    <section id="blog" ref={ref} className="py-8 bg-secondary/5">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0 }}

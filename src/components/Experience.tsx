@@ -47,7 +47,7 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" ref={ref} className="py-20 bg-secondary/5">
+    <section id="experience" ref={ref} className="py-8 bg-secondary/5">
       <div className="container mx-auto px-12">
         <motion.div
           initial={{ opacity: 0 }}

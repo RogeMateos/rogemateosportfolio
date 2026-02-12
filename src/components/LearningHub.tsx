@@ -29,6 +29,20 @@ const LearningHub = () => {
       link: "https://toolswebpack.netlify.app/",
       type: "Documentation",
     },
+    {
+      title: "Learn TypeScript With Me",
+      description: "A comprehensive guide to learning TypeScript with practical examples and real-world applications.",
+      icon: <BookOpen className="w-6 h-6" />,
+      link: "https://learntypescriptwithme.netlify.app/",
+      type: "Documentation",
+    },
+    {
+      title: "Junior to Senior",
+      description: "Comprehensive resource for developers transitioning from junior to senior roles with advanced concepts and best practices.",
+      icon: <BookOpen className="w-6 h-6" />,
+      link: "https://juniortosenior.netlify.app/",
+      type: "Documentation",
+    },
   ];
 
   const favoriteChannels = [

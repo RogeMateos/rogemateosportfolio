@@ -18,6 +18,15 @@ const Projects = () => {
       featured: false,
     },
     {
+      title: "New Testament Meditations",
+      description: "A meditation application featuring daily reflections and spiritual insights from the New Testament with a clean, serene interface for contemplation and personal growth.",
+      tech: ["React", "TypeScript", "TailwindCSS", "Responsive Design"],
+      category: "Personal",
+      demo: "https://newtestamentmeditations.netlify.app/",
+      github: "https://github.com/RogeMateos/inner-peace-path",
+      featured: false,
+    },
+    {
       title: "Task Management App",
       description: "Task management application with collaborative features. Implements drag & drop, real-time notifications and cloud synchronization.",
       tech: ["React", "Redux", "Firebase", "Material-UI"],
@@ -109,10 +118,16 @@ const Projects = () => {
                   >
                     {project.title === "Marvel Superheroes Comic App" ? (
                       <img
-                        src="/images/superheroes.jpeg"
+                        src="/images/superheroes.png"
                         alt="Marvel Heroes App Interface"
                         className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                         style={{objectPosition: "center -18px"}}
+                      />
+                    ) : project.title === "New Testament Meditations" ? (
+                      <img
+                        src="/images/meditationnewtest.png"
+                        alt="New Testament Meditations App"
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center transition-transform duration-300 hover:scale-105">

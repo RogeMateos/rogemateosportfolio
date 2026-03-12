@@ -33,7 +33,7 @@ const About = () => {
               className="space-y-6"
             >
               <p className="text-muted text-lg leading-relaxed">
-                I'm a front-end developer with over 3 years of React experience
+                I'm a front-end developer with over 10 years of React experience
                 building modern and scalable web applications. I currently work
                 at Hastings Insurance where I develop and maintain their Digital
                 Renewals application serving over 2.5 million customers.

@@ -27,12 +27,12 @@ const Projects = () => {
       featured: false,
     },
     {
-      title: "Task Management App",
-      description: "Task management application with collaborative features. Implements drag & drop, real-time notifications and cloud synchronization.",
-      tech: ["React", "Redux", "Firebase", "Material-UI"],
+      title: "Cinema Seat Booking",
+      description: "An interactive cinema seat booking application enabling users to browse available seats, select tickets by preference tier, and complete transactions seamlessly. Features responsive design across all devices, dynamic pricing based on seat type (regular, premium, VIP), and an intuitive booking interface built with React 19, Vite, and Tailwind CSS 4.",
+      tech: ["React 19", "Vite", "Tailwind CSS 4", "Responsive Design"],
       category: "Personal",
-      demo: "https://demo.com",
-      github: "https://github.com",
+      demo: "https://cinematicketsbooking.netlify.app/",
+      github: "https://github.com/RogeMateos/cinema-seat-booking",
       featured: false,
     },
     {

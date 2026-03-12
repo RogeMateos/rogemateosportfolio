@@ -129,6 +129,13 @@ const Projects = () => {
                         alt="New Testament Meditations App"
                         className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                       />
+                    ) : project.title === "Cinema Seat Booking" ? (
+                      <img
+                        src="/images/cinema-tickets.png"
+                        alt="Cinema Seat Booking App"
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                        style={{objectPosition: "center center"}}
+                      />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center transition-transform duration-300 hover:scale-105">
                         <span className="text-muted text-sm">Project preview</span>

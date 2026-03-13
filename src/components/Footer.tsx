@@ -16,7 +16,7 @@ const Footer = () => {
     {
       name: "Email",
       icon: <Mail size={20} />,
-      url: "mailto:roge@email.com",
+      url: "mailto:rogemateos@hotmail.com",
     },
   ];
 
@@ -44,7 +44,7 @@ const Footer = () => {
           </motion.p>
 
           <motion.a
-            href="mailto:roge@email.com"
+            href="mailto:rogemateos@hotmail.com"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}

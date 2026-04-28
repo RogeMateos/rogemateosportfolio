@@ -23,6 +23,13 @@ const LearningHub = () => {
       type: "Documentation",
     },
     {
+      title: "React Router Exercise",
+      description: "Hands-on exercises to practice React Router concepts, navigation patterns, and routing best practices in modern React applications.",
+      icon: <BookOpen className="w-6 h-6" />,
+      link: "https://reactrouterexercise.netlify.app/",
+      type: "Documentation",
+    },
+    {
       title: "Tools & Webpack",
       description: "Interactive course covering essential modern JavaScript build tools.",
       icon: <BookOpen className="w-6 h-6" />,

@@ -8,7 +8,28 @@ const About = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" ref={ref} className="py-8 bg-background">
+    <>
+      <style>{`
+        .keyword-highlight {
+          color: #10b981;
+          font-weight: 600;
+          text-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+          box-shadow: inset 0 0 15px rgba(16, 185, 129, 0.15);
+          padding: 0 2px;
+          border-radius: 2px;
+          transition: all 0.3s ease;
+        }
+
+        .keyword-highlight:hover {
+          text-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
+          box-shadow: inset 0 0 20px rgba(16, 185, 129, 0.25);
+        }
+
+        #about {
+          min-height: 65vh;
+        }
+      `}</style>
+      <section id="about" ref={ref} className="py-8 bg-background">
       <div className="container mx-auto px-12">
         <motion.div
           initial={{ opacity: 0 }}
@@ -33,27 +54,19 @@ const About = () => {
               className="space-y-6"
             >
               <p className="text-muted text-lg leading-relaxed">
-                I'm a front-end developer with over 10 years of React experience
-                building modern and scalable web applications. I currently work
-                at Hastings Insurance where I develop and maintain their Digital
-                Renewals application serving over 2.5 million customers.
+                My current work involves everything from React application architecture to customer journey optimization and API integration with backend insurance systems. I specialize in building intuitive user interfaces for critical business processes such as policy renewals, customer retention journeys, and payment processing systems that support high-volume customer interactions.
               </p>
 
               <p className="text-muted text-lg leading-relaxed">
-                My current work involves everything from React application architecture
-                to complex customer journey optimization and API integration with backend
-                insurance systems. I specialize in creating intuitive user interfaces for
-                critical business processes like policy renewals, customer retention flows,
-                and payment processing that handle high-volume customer interactions.
+                My development philosophy is based on <span className="keyword-highlight">continuous learning</span>, practical <span className="keyword-highlight">problem-solving</span>, and collaboration. I enjoy building solutions that not only work well technically but also deliver meaningful value to users and businesses.
               </p>
 
               <p className="text-muted text-lg leading-relaxed">
-                My development philosophy is based on three fundamental pillars:
-                <span className="text-accent font-semibold"> clean code</span>,
-                <span className="text-accent font-semibold"> continuous learning</span> and
-                <span className="text-accent font-semibold"> effective collaboration</span>.
-                I firmly believe that technology should serve to solve real problems
-                and improve people's lives.
+                Alongside my front-end development work, I am actively exploring how <span className="keyword-highlight">Artificial Intelligence</span> can be applied to software engineering. My current focus is on understanding the limitations of Large Language Models (LLMs) and researching approaches that <span className="keyword-highlight">improve memory</span>, reasoning, knowledge management, and reliability.
+              </p>
+
+              <p className="text-muted text-lg leading-relaxed">
+                I am particularly interested in AI systems that combine <span className="keyword-highlight">persistent memory</span>, specialized skills, and <span className="keyword-highlight">structured workflows</span>. Rather than using AI as a simple chatbot, I enjoy learning how intelligent systems can retain knowledge, explain decisions, reduce context loss, and support complex engineering tasks more effectively.
               </p>
 
               <div className="pt-4">
@@ -75,7 +88,19 @@ const About = () => {
                   </li>
                   <li className="flex items-start">
                     <span className="text-accent mr-2">▶</span>
-                    High-volume payment processing interfaces
+                    Building scalable React applications and user interfaces
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-accent mr-2">▶</span>
+                    Exploring AI-assisted software development and engineering workflows
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-accent mr-2">▶</span>
+                    Researching AI memory, knowledge management, and agent-based systems
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-accent mr-2">▶</span>
+                    Continuous learning in modern software engineering and emerging technologies
                   </li>
                 </ul>
               </div>
@@ -105,6 +130,7 @@ const About = () => {
         </motion.div>
       </div>
     </section>
+    </>
   );
 };
 

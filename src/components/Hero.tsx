@@ -15,7 +15,7 @@ const Hero = () => {
 
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-[80vh] flex items-center justify-center relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent/5" />
       
@@ -49,14 +49,14 @@ Roge Mateos
           transition={{ delay: 0.7 }}
           className="text-3xl md:text-4xl font-semibold text-muted mb-8"
         >
-Full Stack Web Developer
+Front End Developer
         </motion.h2>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9 }}
-          className="text-xl text-muted max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="text-xl text-muted max-w-2xl mx-auto mb-8 leading-relaxed"
         >
           Specializing in crafting exceptional digital experiences.
           I focus on clean code, continuous learning, and innovative
@@ -84,7 +84,7 @@ Full Stack Web Developer
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.3 }}
-          className="flex justify-center space-x-6 mb-16"
+          className="flex justify-center space-x-6 mb-2"
         >
           <motion.a
             href="https://github.com/RogeMateos"
@@ -120,7 +120,7 @@ Full Stack Web Developer
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-[-40px] left-[calc(50%-8px)]"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
